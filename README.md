@@ -3,7 +3,7 @@ Desafio criado pela buzzmonitor para a seleção.
 
 Ferramentas utilizadas no desafio:
 
-- ##Sprint Boot (API Rest)##
+- Eclipse com Sprint Boot (API Rest Java)
 - ElasticSearch (Banco de Dados)
 - Postman (Para envio das requisições)
-
+- Maven (Dependencias)
