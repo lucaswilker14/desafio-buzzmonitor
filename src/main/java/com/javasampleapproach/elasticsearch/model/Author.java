@@ -11,7 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Author {
 	
 	@Id
-	private String id;
+	@JsonIgnore
+	private Long id;
 	
 	private String name;
 	private String name_searchable;
@@ -30,11 +31,12 @@ public class Author {
 	
 	public Author() {}
 
-	public String getId() {
+
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+	
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -34,7 +36,7 @@ public class PostController {
 	PostRepository postRepository;
 	
 	//retorna todos os posts
-	@GetMapping(value = "/listagem")
+	@GetMapping
 	public @ResponseBody List<Post> returnPost(){
 		List<Post> posts = new ArrayList<Post>();
 		Iterable<Post> postI = postRepository.findAll();
@@ -44,11 +46,15 @@ public class PostController {
 		return posts;
 	}
 	
-	//retorna post pelo nome do autor.
-//	@GetMapping(value = "/author/{name}", produces = "application/json")
-//	public @ResponseBody Post returnPostByAuthorName(@PathVariable String name){
-//		return postService.findByAuthor(name);
-//	}
+	@GetMapping(value = "/{id}")
+	public @ResponseBody Optional<Post> returnById(@PathVariable("id") String id){
+		return postRepository.findById(id);
+	}
+	
+	@GetMapping(value = "/service/{service}")
+	public @ResponseBody List<Post> returnByService(@PathVariable("service") String service){
+		return postRepository.findByService(service);
+	}
 	
 	@PutMapping(value = "/loadDataSet")
 	@Transactional
@@ -60,12 +66,17 @@ public class PostController {
 		
 		try {
 			List<Post> posts = mapper.readValue(inputStream, typeReference);
-			postRepository.saveAll(posts);
+			postService.saveAll(posts);
 			System.out.println("Posts Saved!");
 			return "Posts Saved!";
 		} catch (IOException e){
 			System.out.println("Unable to save users: " + e.getMessage());
 			return "Unable to save users: " + e.getMessage();
 		}
+	}
+	
+	@DeleteMapping(value = "/deleteAllDocs")
+	public @ResponseBody String deleteAll() {
+		return postService.deleteAll();
 	}
 }

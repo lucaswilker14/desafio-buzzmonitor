@@ -9,17 +9,8 @@ public interface Crud<T> {
 	// getAll
 	Iterable<Post> findAll();
 	
-	List<T> findByPost_id(String post_id);
-
-	// getId
-	T findByid(Long id);
-
-	// getAuthorByPost
-	T findByAuthor(String name_author);
-
-	// update
-	T update(T obj1, T obj2);
-
+	List<Post> findByService(String service);
+	
 	// delete
 	String delete(String post_id);
 
