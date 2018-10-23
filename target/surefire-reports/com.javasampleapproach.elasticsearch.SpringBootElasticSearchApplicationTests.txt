@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.javasampleapproach.elasticsearch.SpringBootElasticSearchApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 60.582 s <<< FAILURE! - in com.javasampleapproach.elasticsearch.SpringBootElasticSearchApplicationTests
+contextLoads(com.javasampleapproach.elasticsearch.SpringBootElasticSearchApplicationTests)  Time elapsed: 0.109 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'postController': Unsatisfied dependency expressed through field 'postService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'postService': Unsatisfied dependency expressed through field 'ar'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorRepository': Invocation of init method failed; nested exception is java.lang.NullPointerException
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'postService': Unsatisfied dependency expressed through field 'ar'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorRepository': Invocation of init method failed; nested exception is java.lang.NullPointerException
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorRepository': Invocation of init method failed; nested exception is java.lang.NullPointerException
+Caused by: java.lang.NullPointerException
+

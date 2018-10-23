@@ -1,0 +1,8 @@
+com\javasampleapproach\elasticsearch\repository\PostRepository.class
+com\javasampleapproach\elasticsearch\SpringBootElasticSearchApplication.class
+com\javasampleapproach\elasticsearch\util\Crud.class
+com\javasampleapproach\elasticsearch\controller\PostController.class
+com\javasampleapproach\elasticsearch\controller\PostController$1.class
+com\javasampleapproach\elasticsearch\service\PostService.class
+com\javasampleapproach\elasticsearch\model\Author.class
+com\javasampleapproach\elasticsearch\model\Post.class
